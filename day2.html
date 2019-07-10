@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue选项卡</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+            #box{
+                width: 600px;
+                height:400px;
+                background-color: #fcfcfc;
+                margin: 50px auto;
+            }
+            .top{
+                width: 600px;
+                height: 80px;
+                display: flex;
+            }
+            .top>span{
+                width: 33.3%;
+                height: 100%;
+                line-height: 80px;
+                text-align: center;
+            }
+        .top>span.active{
+            background-color: orangered;
+        }
+        .main{
+            width: 600px;
+            height: 320px;
+            background-color: skyblue;
+
+        }
+        .main>div{
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .main>div.active{
+            display: block;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div class="top">
+            <span :class="{active:state===1}" @click="state=1">1</span>
+            <span :class="{active:state===2}" @click="state=2">2</span>
+            <span :class="{active:state===3}" @click="state=3">3</span>
+
+        </div>
+        <div class="main">
+            <div :class="{active:state===1}">1</div>
+            <div :class="{active:state===2}">2</div>
+            <div :class="{active:state===3}">3</div>
+    </div>
+    </div>
+    <script>
+        new Vue({
+            el:"#box",
+            data:{
+                state:1
+            },
+
+        })
+    </script>
+</body>
+</html>
